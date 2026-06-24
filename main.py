@@ -18,11 +18,7 @@ while True:
         opcion = int(input("Seleccione : "))
 
         match opcion:
-            case 1:
-                nombre = input("Ingrese nombre : ").title()
-                clase = input("Ingrese Clase : ").title()
-                nivel = int(input("Ingrese nivel : "))
-                agregar(nombre, clase, nivel)
+            case 1: pass
             case 2: pass
             case 3: pass
             case 4: pass
