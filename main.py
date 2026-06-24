@@ -19,15 +19,21 @@ while True:
 
         match opcion:
             case 1:
-                nombre = input("Ingrese nombre : ").title()
+                nombre = input("Ingrese ombre : ").title()
                 clase = input("Ingrese Clase : ").title()
                 nivel = int(input("Ingrese nivel : "))
                 agregar(nombre, clase, nivel)
-            case 2: pass
-            case 3: pass
-            case 4: pass
+            case 2:
+                nombre = input("Ingrese nombre : ").title()
+                mostrar(nombre)
+            case 3:
+                nombre_eliminar = input("Ingrese nombre del personaje que desea borrar : ")
+                eliminar(nombre_eliminar)
+            case 4: 
+                nombre_subir = input("Ingrese el personaje que desea subir de nivel : ")
+                SubirNivel(nombre_subir)
             case 5: pass
-            case 6: pass
+            case 6: listar()
             case 7: break
             case _: print("No válido")
     except Exception as e:

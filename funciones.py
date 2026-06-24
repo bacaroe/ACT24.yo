@@ -28,3 +28,44 @@ def agregar(nombre,clase,nivel):
     pj = {"nombre":nombre,"clase":clase,"nivel":nivel,"rango":rango}
     personajes.append(pj)
     print("Personaje registrado")
+
+def mostrar(nombre):
+    posicion = buscar(nombre)
+    if posicion >= 0:
+        print(f"Personaje encontrado : {personajes[posicion]}")
+    else:
+        print("Nombre no existe")
+    
+def listar():
+    if len(personajes)>0:
+        print(f"{"N°":<3}.-{"nombre":<20} {"Clase":<10} {"Nivel":<4} {"Rango":<10}")
+        for i in range(len(personajes)):
+            print(f"{i+1:<3}.-{personajes[i]["nombre"]:<20} {personajes[i]["clase"]:<10} {personajes[i]["nivel"]:<4} {personajes[i]["rango"]:<10}")
+    else: 
+        print("No hay personajes registrados")
+
+def eliminar(nombre):
+    posicion = buscar(nombre)
+    if posicion >= 0:
+        validacion = input(f"¿Desea eliminar el personaje {nombre}? (S/N) ")
+        if validacion=="S":
+            personajes.pop(posicion)
+            print("Personaje removido")
+        else: 
+            print("Proceso cancelado con éxito")
+    else:
+        print("Error, el personaje no pertenece al Gremio")
+
+def SubirNivel(nombre):
+    posicion = buscar(nombre)
+    if posicion >= 0:
+       nivel = personajes[posicion]["nivel"]
+       if nivel<50:
+            personajes[posicion]["nivel"] = nivel +1
+            print("Nivel Aumentado")
+            if nivel>=30: 
+               personajes[posicion]["rango"] = "Élite"
+        else:
+             print("Ya ha alcanzado el nivel máximo")
+    else:
+        print("No se ha encontrado ningún personaje con ese nombre")
