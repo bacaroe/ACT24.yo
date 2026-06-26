@@ -27,12 +27,12 @@ while True:
                 nombre = input("Ingrese nombre : ").title()
                 mostrar(nombre)
             case 3:
-                nombre_eliminar = input("Ingrese nombre del personaje que desea borrar : ")
+                nombre_eliminar = input("Ingrese nombre del personaje que desea borrar : ").title
                 eliminar(nombre_eliminar)
             case 4: 
                 nombre_subir = input("Ingrese el personaje que desea subir de nivel : ")
                 SubirNivel(nombre_subir)
-            case 5: pass
+            case 5: estadisticas()
             case 6: listar()
             case 7: break
             case _: print("No válido")

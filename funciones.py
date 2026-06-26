@@ -59,8 +59,8 @@ def eliminar(nombre):
 def SubirNivel(nombre):
     posicion = buscar(nombre)
     if posicion >= 0:
-       nivel = personajes[posicion]["nivel"]
-       if nivel<50:
+        nivel = personajes[posicion]["nivel"]
+        if nivel<50:
             personajes[posicion]["nivel"] = nivel +1
             print("Nivel Aumentado")
             if nivel>=30: 
@@ -69,3 +69,22 @@ def SubirNivel(nombre):
              print("Ya ha alcanzado el nivel máximo")
     else:
         print("No se ha encontrado ningún personaje con ese nombre")
+
+def estadisticas():
+    sumaniveles = 0
+    guerreros = 0
+    magos = 0
+    picaros = 0
+    for pj in personajes:
+        sumaniveles += pj["nivel"] #Sumar niveles
+        match pj["clase"]:
+            case "Guerrero": guerreros+=1
+            case "Mago": magos+=1
+            case "Pícaro": picaros+=1
+    promedio = (sumaniveles/len(personajes)  ,1)
+    print(f""" 
+    Nivel promedio del gremio : {promedio}
+    Cantidad Guerreros : {guerreros}
+    Cantidad Magos     : {magos}
+    Cantidad Pícaros   : {picaros}
+    """)
